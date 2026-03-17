@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Anezz Project</title>
+<style>
+  body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
+  #matrixCanvas,#snowCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .app{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:18px}
+  .profile{margin-top:20px;text-align:center}
+  .avatar{width:110px;height:110px;border-radius:50%;overflow:hidden;border:3px solid #00ff66;margin:0 auto 12px}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .title{font-size:22px;font-weight:bold}
+  .subtitle{color:#aaa;font-size:14px;margin-top:4px}
+
+  .list{margin-top:20px;width:100%;max-width:600px;display:flex;flex-direction:column;gap:14px}
+  .card{background:#fff;color:#000;padding:12px;border-radius:10px;display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:bold}
+  .mini{width:50px;height:50px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:8px}
+  .text{flex:1}
+
+  /* halaman produk */
+  #produkPage{
+    position:fixed;inset:0;z-index:5;background:#000;color:#0f0;
+    font-family:monospace;overflow-y:auto;display:none;padding:20px;white-space:pre-wrap
+  }
+  #produkPage h2{color:#0f0;text-align:center}
+  .closeBtn{display:block;margin:20px auto;padding:8px 16px;background:#0f0;color:#000;
+    border:0;border-radius:6px;cursor:pointer;font-weight:bold}
+</style>
+</head>
+<body>
+<canvas id="matrixCanvas"></canvas>
+<canvas id="snowCanvas"></canvas>
+ada di chenel telegram sama whatsapp 
+   jangan lupa follow tiktok ini ya 
+
+<div class="app" id="mainPage">
+  <div class="profile">
+    <div class="avatar"><img src="https://a.top4top.io/p_3542e5o6u0.png" alt="Profil"></div>
+    <div class="title">OWNER ANEZZ</div>
+    <div class="subtitle">yang mau buy produk anezz<br>silakan sering promo ko produk kita</div>
+  </div>
+  <div class="list">
+    <div class="card" onclick="showProduk()"><div class="mini">PD</div><div class="text">𝗣𝗥𝗢𝗗𝗨𝗞 𝗢𝗪𝗡𝗘𝗥</div></div>
+    <div class="card" onclick="location.href='https://t.me/anezzz15'"><div class="mini">TL</div><div class="text">𝗧𝗘𝗟𝗘𝗚𝗥𝗔𝗠</div></div>
+    <div class="card" onclick="location.href='https://t.me/anzmkk'"><div class="mini">CT</div><div class="text">𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗧𝗘𝗟𝗘𝗚𝗥𝗔𝗠</div></div>
+    <div class="card" onclick="location.href='https://wa.me/6289512434976'"><div class="mini">NM</div><div class="text">𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣</div></div>
+    <div class="card" onclick="location.href='https://whatsapp.com/channel/0029Vb7N7MECHDytoppXWj2H'"><div class="mini">CW</div><div class="text">𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣</div></div>
+</div>
+</div>
+
+<div id="produkPage">
+  <h2>━━〣 𝗡𝗲𝘄 𝗣𝗿𝗼𝗱𝘂𝗸 *ANEZZ*</h2>
+  ┏━━━━━━━━━━━━━━━━━
+  ┃ OPEN JASBUG
+  ┃ OPEN JASBEN 
+  ┃ OPEN JASSNTK
+  ┃ OPEN MURBUG 
+  ┃ OPEN MURBEN
+  ┃ OPEN PENEL 
+  ┃ OPEN APK BUG
+  ┃ OPEN APK BEN
+  ┃ OPEN WEB SUNTIK 
+  ┃ OPEN WEB JPM
+  ┃ OPEN JASA WEB
+  ┗━━━━━━━━━━━━━━━━
+  ┏━━━━━━
+  ┃ 𝗠𝗜𝗡𝗔𝗧 👇
+  ┃ t.me/anezzz15
+  ┃ @anezzz1
+  ┗━━━━━━━━━━━━━━━━
+
+   𝗧𝗘𝗦𝗧𝗜 ⬇
+
+   𝐚𝐝𝐚 𝐝𝐢 𝐜𝐡𝐞𝐧𝐞𝐥 𝐭𝐞𝐥𝐞𝐠𝐫𝐚𝐦 𝐬𝐚𝐦𝐚 𝐰𝐡𝐚𝐭𝐬𝐚𝐩𝐩 
+   𝐣𝐚𝐧𝐠𝐚𝐧 𝐥𝐮𝐩𝐚 𝐟𝐨𝐥𝐥𝐨𝐰 𝐭𝐢𝐤𝐭𝐨𝐤 𝐢𝐧𝐢 𝐲𝐚
+
+
+   © anezz
+
+  <button class="closeBtn" onclick="closeProduk()">Tutup</button>
+</div>
+
+<script>
+/* halaman produk */
+function showProduk(){
+  document.getElementById('mainPage').style.display='none';
+  document.getElementById('produkPage').style.display='block';
+}
+function closeProduk(){
+  document.getElementById('produkPage').style.display='none';
+  document.getElementById('mainPage').style.display='block';
+}
+
+/* MATRIX effect */
+(function(){
+  const c=document.getElementById("matrixCanvas"),ctx=c.getContext("2d");
+  let w,h,font=16,cols,drops;
+  const chars="アィイウエオカキクケコサシスセソ0123456789ABCDEF";
+  function resize(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.floor(w/font);drops=new Array(cols).fill(1);}
+  function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.1)";
+    ctx.fillRect(0,0,w,h);
+    ctx.fillStyle="#0f0";ctx.font=font+"px monospace";
+    for(let i=0;i<cols;i++){
+      const t=chars[Math.floor(Math.random()*chars.length)];
+      ctx.fillText(t,i*font,drops[i]*font);
+      if(drops[i]*font>h&&Math.random()>0.975)drops[i]=0;
+      drops[i]++;
+    }
+  }
+  resize();setInterval(draw,33);addEventListener("resize",resize);
+})();
+
+/* Snow effect */
+(function(){
+  const c=document.getElementById("snowCanvas"),ctx=c.getContext("2d");
+  let w,h,flakes=[];
+  function resize(){w=c.width=innerWidth;h=c.height=innerHeight;}
+  function setup(){
+    resize();flakes=[];
+    for(let i=0;i<120;i++)flakes.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*3+1,d:Math.random()*1.5+0.5});
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle="white";ctx.beginPath();
+    for(const f of flakes){ctx.moveTo(f.x,f.y);ctx.arc(f.x,f.y,f.r,0,Math.PI*2);}
+    ctx.fill();update();
+  }
+  let angle=0;
+  function update(){
+    angle+=0.01;
+    for(const f of flakes){
+      f.y+=Math.pow(f.d,1.2)+1;f.x+=Math.sin(angle)*0.6;
+      if(f.y>h){f.y=-5;f.x=Math.random()*w;}
+    }
+  }
+  setup();setInterval(draw,33);addEventListener("resize",()=>{resize();setup();});
+})();
+</script>
+</body>
+</html>
